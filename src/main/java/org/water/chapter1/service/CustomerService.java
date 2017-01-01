@@ -23,9 +23,11 @@ public class CustomerService {
 
         Connection conn = null;
         try{
-            List<Customer> customerList = new ArrayList<Customer>();
+            //List<Customer> customerList = new ArrayList<Customer>();
             String sql = "SELECT * FROM customer";
-            conn = DBHelper.getConnection();//DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            //conn = DBHelper.getConnection();//DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            return DBHelper.queryEntityList(Customer.class,  sql);
+            /*
             PreparedStatement stmt = conn.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
 
@@ -40,19 +42,21 @@ public class CustomerService {
                 customerList.add(customer);
             }
 
-            return customerList;
-        }catch (SQLException e){
-            LOGGER.error("execute sql failure", e);
+            return customerList;*/
+        //}catch (SQLException e){
+           // LOGGER.error("execute sql failure", e);
         }finally {
+            DBHelper.closeConnection();
+            /*
             if (conn != null){
                 try{
                     conn.close();
                 }catch (SQLException e){
                     LOGGER.error("close connection failure", e);
                 }
-            }
+            }*/
         }
-        return null;
+        //return null;
     }
 
     public Customer getCustomer(long id){
