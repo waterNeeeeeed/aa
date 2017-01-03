@@ -101,8 +101,13 @@ public final class DBHelper {
 
     }
 
-    public static<T> String  getTableName(Class<T> entityClass){
+    /*
+    * public static String  getTableName(Class<?> entityClass){
         return entityClass.getName().toLowerCase();
+    }
+    * */
+    public static<T> String  getTableName(Class<T> entityClass){
+        return entityClass.getSimpleName().toLowerCase();
     }
 
     /*

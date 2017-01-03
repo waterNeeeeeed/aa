@@ -34,6 +34,7 @@ public class CustomerServiceTest {
     public void getCustomerTest() throws Exception{
         long id = 1;
         Customer customer = customerService.getCustomer(id);
+        //System.out.println(customer.getName() + customer.getContact());
         Assert.assertNotNull(customer);
 
     }
@@ -59,7 +60,7 @@ public class CustomerServiceTest {
 
     @Test
     public void deleteCustomerTest() throws Exception{
-        long id = 1;
+        long id = 8;
         boolean result = customerService.deleteCustomer(id);
         Assert.assertTrue(result);
     }

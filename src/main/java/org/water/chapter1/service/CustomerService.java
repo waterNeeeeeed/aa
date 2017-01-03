@@ -21,7 +21,7 @@ public class CustomerService {
 
     public List<Customer> getCustomerList(String keyword){
 
-        Connection conn = null;
+        //Connection conn = null;
         try{
             //List<Customer> customerList = new ArrayList<Customer>();
             String sql = "SELECT * FROM customer";
@@ -60,21 +60,26 @@ public class CustomerService {
     }
 
     public Customer getCustomer(long id){
-        return null;
+
+        try{
+            String sql = "SELECT * FROM customer where id = " + id;
+            return DBHelper.queryEntity(Customer.class, sql);
+        }finally {
+            DBHelper.closeConnection();
+        }
+
     }
 
     public boolean createCustomer(Map<String, Object> fieldMap){
-        return false;
+        return DBHelper.insertEntity(Customer.class, fieldMap);
 
     }
 
     public boolean updateCustomer(long id, Map<String, Object> fieldMap){
-
-        return false;
+        return DBHelper.updateEntity(Customer.class, id, fieldMap);
     }
 
     public boolean deleteCustomer(long id){
-
-        return false;
+        return DBHelper.deleteEntity(Customer.class, id);
     }
 }
