@@ -21,13 +21,16 @@ public class CustomerService {
 
     public List<Customer> getCustomerList(String keyword){
 
+        String sql = "SELECT * FROM customer";
+        //conn = DBHelper.getConnection();//DriverManager.getConnection(URL, USERNAME, PASSWORD);
+        return DBHelper.queryEntityList(Customer.class,  sql);
         //Connection conn = null;
-        try{
+        /*try{
             //List<Customer> customerList = new ArrayList<Customer>();
             String sql = "SELECT * FROM customer";
             //conn = DBHelper.getConnection();//DriverManager.getConnection(URL, USERNAME, PASSWORD);
             return DBHelper.queryEntityList(Customer.class,  sql);
-            /*
+            *//*
             PreparedStatement stmt = conn.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
 
@@ -42,31 +45,34 @@ public class CustomerService {
                 customerList.add(customer);
             }
 
-            return customerList;*/
+            return customerList;*//*
         //}catch (SQLException e){
            // LOGGER.error("execute sql failure", e);
-        }finally {
+        }*/
+        /*finally {
             DBHelper.closeConnection();
-            /*
+            *//*
             if (conn != null){
                 try{
                     conn.close();
                 }catch (SQLException e){
                     LOGGER.error("close connection failure", e);
                 }
-            }*/
-        }
+            }*//*
+        }*/
         //return null;
     }
 
     public Customer getCustomer(long id){
+        String sql = "SELECT * FROM customer where id = " + id;
+        return DBHelper.queryEntity(Customer.class, sql);
 
-        try{
+        /*try{
             String sql = "SELECT * FROM customer where id = " + id;
             return DBHelper.queryEntity(Customer.class, sql);
         }finally {
             DBHelper.closeConnection();
-        }
+        }*/
 
     }
 

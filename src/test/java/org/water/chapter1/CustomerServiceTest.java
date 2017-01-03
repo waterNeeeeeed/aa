@@ -6,6 +6,9 @@ import org.junit.Test;
 import org.water.chapter1.model.Customer;
 import org.water.chapter1.service.CustomerService;
 
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,8 +23,9 @@ public class CustomerServiceTest {
     }
 
     @Before
-    public void init(){
-
+    public void init()throws Exception{
+        String file = "sql/customer_init.sql";
+        DBHelper.executeSqlFile(file);
     }
 
     @Test
@@ -42,6 +46,7 @@ public class CustomerServiceTest {
     @Test
     public void createCustomerTest() throws Exception{
         Map<String, Object> fieldMap = new HashMap<String, Object>();
+        //fieldMap.put("id", 1); error
         fieldMap.put("name", "TestName");
         fieldMap.put("contact", "Test");
         fieldMap.put("telephone", "123");
@@ -60,7 +65,7 @@ public class CustomerServiceTest {
 
     @Test
     public void deleteCustomerTest() throws Exception{
-        long id = 8;
+        long id = 2;
         boolean result = customerService.deleteCustomer(id);
         Assert.assertTrue(result);
     }
