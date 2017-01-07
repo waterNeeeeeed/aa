@@ -9,7 +9,7 @@
 List<Customer> cs = (List<Customer>)request.getAttribute("customerList");
 %>
 </head>
-<body onload="list();">
+<body>
 <h1>Hello</h1>
 <h2>CurrentTime:${currentTime}</h2>
 <table id="cList" border="1">
