@@ -45,28 +45,6 @@ for (int i=0; i<cs.size(); i++)
 
 <script type="text/javascript">
 
-    var list = function()
-    {
-        var table = document.getElementById("cList");
-
-            document.getElementById("size").innerHTML = "list";
-            for(var i=0; i<${cs.size()}; i++)
-            {
-                var tr = table.insertRow(table.rows.length);
-                var td = tr.insertCell(0);
-                td.innerHTML = ${cs.get(i).getId()};
-                td = tr.insertCell(1);
-                td.innerHTML = ${cs.get(i).getName()};
-                td = tr.insertCell(2);
-                td.innerHTML = ${cs.get(i).getContact()};
-                td = tr.insertCell(3);
-                td.innerHTML = ${cs.get(i).getTelephone()};
-                td = tr.insertCell(4);
-                td.innerHTML = ${cs.get(i).getEmail()};
-                td = tr.insertCell(5);
-                td.innerHTML = ${cs.get(i).getRemark()};
-            };
-    }
 
 </script>
 
