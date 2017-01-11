@@ -7,4 +7,20 @@
 <welcome-file-lise>
     <welcome-file>hello.jsp</welcome-file>
 </welcome-file-lise>
+    <servlet>
+        <servlet-name>testJSP</servlet-name>
+        <jsp-file>/WEB-INF/jsp/test.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>testJSP</servlet-name>
+        <url-pattern>/test</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>testMyTag</servlet-name>
+        <jsp-file>/WEB-INF/jsp/tagTest/helloWorldTag.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>testMyTag</servlet-name>
+        <url-pattern>/testMyTag</url-pattern>
+    </servlet-mapping>
 </web-app>
